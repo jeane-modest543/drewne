@@ -71,256 +71,927 @@
 
 <body>
 
-    <!-- ==================================
-         TOP NAVIGATION BAR
-    =================================== -->
-
-    <header class="w-full h-16 bg-gradient-to-b from-gray-700 to-gray-900
-                   flex items-center px-4 overflow-hidden">
-
-</div>
-        <!-- GOAL LOGO -->
-        <div class="goal-logo flex-shrink-0 text-white text-2xl
-                    font-extrabold mr-8 cursor-pointer"
-             onclick="showMessage('GOAL Home')">
-
-            GOAL
-
-        </div>
-
-
-        <!-- NAVIGATION -->
-        <nav class="menu-scroll flex items-center gap-7
-                    overflow-x-auto whitespace-nowrap">
-
-
-            <!-- SCORES -->
-            <a href="#"
-               class="nav-link flex-shrink-0 text-gray-200
-                      text-sm font-bold py-5"
-               onclick="showMessage('Scores')">
-
-                SCORES
-
-            </a>
-
-
-            <!-- =========================
-                 LATEST
-            ========================== -->
-
-            <div class="relative flex-shrink-0">
-
-                <button
-                    onclick="toggleDropdown('latestDropdown')"
-                    class="nav-link text-gray-200 text-sm font-bold py-5">
-
-                    LATEST
-
-                    <span class="text-[8px] ml-1">
-                        ▼
-                    </span>
-
-                </button>
-
-
-                <!-- Latest Dropdown -->
-                <div id="latestDropdown"
-                     class="dropdown absolute top-14 left-0
-                            bg-gray-900 text-white rounded-lg
-                            shadow-xl w-44 z-50">
-
-                    <button
-                        onclick="showMessage('Latest News')"
-                        class="block w-full text-left px-4 py-3
-                               hover:bg-gray-700 text-sm">
-
-                        Latest News
-
-                    </button>
-
-                    <button
-                        onclick="showMessage('Football News')"
-                        class="block w-full text-left px-4 py-3
-                               hover:bg-gray-700 text-sm">
-
-                        Football News
-
-                    </button>
-
-                    <button
-                        onclick="showMessage('Transfer News')"
-                        class="block w-full text-left px-4 py-3
-                               hover:bg-gray-700 text-sm">
-
-                        Transfer News
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- FORUMS -->
-            <a href="#"
-               class="nav-link flex-shrink-0 text-gray-200
-                      text-sm font-bold py-5"
-               onclick="showMessage('Forums')">
-
-                FORUMS
-
-            </a>
-
-
-            <!-- =========================
-                 COMPETITIONS
-            ========================== -->
-
-            <div class="relative flex-shrink-0">
-
-                <button
-                    onclick="toggleDropdown('competitionDropdown')"
-                    class="nav-link text-gray-200 text-sm font-bold py-5">
-
-                    COMPETITIONS
-
-                    <span class="text-[8px] ml-1">
-                        ▼
-                    </span>
-
-                </button>
-
-
-                <!-- Competition Dropdown -->
-                <div id="competitionDropdown"
-                     class="dropdown absolute top-14 left-0
-                            bg-gray-900 text-white rounded-lg
-                            shadow-xl w-48 z-50">
-
-                    <button
-                        onclick="showMessage('Premier League')"
-                        class="block w-full text-left px-4 py-3
-                               hover:bg-gray-700 text-sm">
-
-                        Premier League
-
-                    </button>
-
-                    <button
-                        onclick="showMessage('Champions League')"
-                        class="block w-full text-left px-4 py-3
-                               hover:bg-gray-700 text-sm">
-
-                        Champions League
-
-                    </button>
-
-                    <button
-                        onclick="showMessage('World Cup')"
-                        class="block w-full text-left px-4 py-3
-                               hover:bg-gray-700 text-sm">
-
-                        World Cup
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- NEWSLETTERS -->
-            <a href="#"
-               class="nav-link flex-shrink-0 text-gray-200
-                      text-sm font-bold py-5"
-               onclick="showMessage('Newsletters')">
-
-                NEWSLETTERS
-
-            </a>
-
-
-            <!-- INDIVISA -->
-            <a href="#"
-               class="nav-link flex-shrink-0 text-gray-200
-                      text-sm font-bold py-5"
-               onclick="showMessage('Indivisa')">
-
-                INDIVISA
-
-            </a>
-
-
-            <!-- GOALSTUDIO -->
-            <a href="#"
-               class="nav-link flex-shrink-0 text-gray-200
-                      text-sm font-bold py-5"
-               onclick="showMessage('GoalStudio')">
-
-                GOALSTUDIO
-
-            </a>
-
-
-            <!-- SHOP -->
-            <a href="#"
-               class="nav-link flex-shrink-0 text-gray-200
-                      text-sm font-bold py-5"
-               onclick="showMessage('Shop')">
-
-                SHOP
-
-            </a>
-
-        </nav>
-
     </header>
 
-    
 
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "Arial", "sans-serif"]
+          },
+          animation: {
+            "fade-up": "fadeUp .6s ease forwards",
+            "slide-in": "slideIn .5s ease forwards"
+          },
+          keyframes: {
+            fadeUp: {
+              "0%": {
+                opacity: "0",
+                transform: "translateY(25px)"
+              },
+              "100%": {
+                opacity: "1",
+                transform: "translateY(0)"
+              }
+            },
+            slideIn: {
+              "0%": {
+                opacity: "0",
+                transform: "translateX(-30px)"
+              },
+              "100%": {
+                opacity: "1",
+                transform: "translateX(0)"
+              }
+            }
+          }
+        }
+      }
+    };
+  </script>
 
-<!-- ==================================
-     IMAGE WITH WRITING ON TOP
-=================================== -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
-<section class="relative w-full h-[500px] overflow-hidden mb-8">
+    body {
+      background: #f5f5f3;
+    }
 
-    <!-- IMAGE -->
-    <img 
-        src="image.png.mbappe.webp"
-        alt="Mbappe Nike Split"
-        class="absolute inset-0 w-full h-full object-cover"
-    >
+    .article-card {
+      transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+    }
 
-    <!-- DARK OVERLAY -->
-    <div class="absolute inset-0 bg-black/20"></div>
+    .article-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, .12);
+    }
 
+    .hero-image {
+      transition: transform .7s ease;
+    }
 
-    <!-- WRITING -->
-    <div class="absolute left-0 bottom-10
-                md:bottom-14
-                px-6 md:px-12
-                max-w-2xl">
+    .hero:hover .hero-image {
+      transform: scale(1.04);
+    }
 
-        <h1 class="text-white
-                   text-2xl
-                   sm:text-3xl
-                   md:text-2xl
-                   font-extrabold
-                   uppercase
-                   leading-tight
-                   drop-shadow-lg">
+    .nav-link {
+      position: relative;
+    }
 
-            Mbappe's Nike Split Signals
-            Seismic Shift For Boot Deals
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 2px;
+      background: #f97316;
+      transition: width .3s ease;
+    }
 
-        </h1>
+    .nav-link:hover::after {
+      width: 100%;
+    }
 
+    .page {
+      animation: fadeUp .45s ease;
+    }
+  </style>
+</head>
+
+<body class="text-gray-900">
+
+  <!-- ================= NAVIGATION ================= -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+      <div class="h-20 flex items-center justify-between">
+
+        <button
+          onclick="showHome()"
+          class="flex items-center gap-3 group"
+        >
+          <div class="w-11 h-11 bg-black text-white flex items-center justify-center font-black text-xl group-hover:bg-orange-500 transition">
+            Goal
+          </div>
+
+          <div class="hidden sm:block">
+            <h1 class="font-black text-xl tracking-tight">
+        
+            </h1>
+            <p class="text-[10px] uppercase tracking-[.25em] text-gray-500">
+            
+            </p>
+          </div>
+        </button>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-bold">
+          <button onclick="showHome()" class="nav-link">SCORE</button>
+          <button onclick="filterArticles('LATEST')" class="nav-link">LATEST</button>
+          <button onclick="filterArticles('FORUMS')" class="nav-link">FORUMS</button>
+          <button onclick="filterArticles('COMPETITIONS')" class="nav-link">COMPETITIONS</button>
+          <button onclick="filterArticles('NEWSLETTERS')" class="nav-link">NEWSLETTERS</button>
+          <button onclick="filterArticles('INDIVISA')" class="nav-link">INDIVISA</button>
+          <button onclick="filterArticles('GOALDSTUDIO')" class="nav-link">GOALDSTUDIO</button>
+          <button onclick="filterArticles('SHOP')" class="nav-link">SHOP</button>
+        </nav>
+
+        <img
+        src="profile.png">
+
+        <button
+          onclick="toggleMenu()"
+          class="md:hidden text-2xl"
+          aria-label="Menu"
+        >
+          ☰
+        </button>
+
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden md:hidden pb-5">
+        <div class="flex flex-col gap-4 text-sm font-bold">
+          <button onclick="showHome(); toggleMenu()"></button>
+          <button onclick="filterArticles('LATEST'); toggleMenu()">LATEST</button>
+          </button> <button onclick="filterArticles('FORUMS'); toggleMenu()">FORUMS</button>
+          <button onclick="filterArticles('COMPETITIONS'); toggleMenu()">COMPETITIONS</button>
+          <button onclick="filterArticles('NEWSLETTERS'); toggleMenu()">NEWSLETTER
+          <button onclick="filterArticles('INDIVISA'); toggleMenu()">INDIVISA</button>
+          <button onclick="filterArticles('GOALDSTUDIO'); toggleMenu()">GOALDSTUDIO</button>
+          <button onclick="filterArticles('SHOP'); toggleMenu()">SHOP</button>
+
+        </div>
+      </div>
     </div>
+  </header>
 
-</section>
 
+  <!-- ================= APP ================= -->
+  <main id="app"></main>
+
+      <div class="border-t border-gray-800 mt-10 pt-6 text-xs text-gray-500">
+
+      </div>
+    </div>
+  </footer>
+
+
+
+<script>
+
+  // =========================================================
+  // ARTICLE DATA
+  // =========================================================
+
+  const articles = [
+
+    {
+      id: 1,
+      category: "Boots",
+      title: "Nike Split Signals: The Seismic Boot Deals Reshaping Football",
+      excerpt:
+        "Nike's relationship with football's biggest stars is entering a new era as the battle for the next generation of players intensifies.",
+      image:
+        "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1400&q=85",
+      date: "August 27, 2026",
+      body: `
+        <p>
+          Football boot deals have become much more than sponsorship
+          agreements. For elite players, the right boot partnership can
+          become a major part of their identity.
+        </p>
+
+        <p>
+          Nike has spent decades building some of the strongest
+          relationships in football. Its latest generation of players
+          is helping the company push that strategy even further.
+        </p>
+
+        <p>
+          The competition between the world's biggest sportswear brands
+          is becoming increasingly aggressive, with young footballers
+          now being identified and signed long before they reach the
+          biggest professional stages.
+        </p>
+
+        <p>
+          The modern footballer is therefore no longer simply an athlete.
+          Players are becoming brands, creators and cultural figures,
+          making boot contracts an increasingly important part of the
+          football business.
+        </p>
+      `
+    },
+
+    {
+      id: 2,
+      category: "Football",
+      title: "The Face of Nike Football: Kylian Mbappé",
+      excerpt:
+        "How one of football's biggest stars became one of Nike's most recognizable faces.",
+      image:
+        "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1400&q=85",
+      date: "August 26, 2026",
+      body: `
+        <p>
+          Kylian Mbappé has become synonymous with Nike throughout
+          his football career.
+        </p>
+
+        <p>
+          Long before becoming one of the most recognizable players
+          in world football, Mbappé was already attracting attention
+          from major sporting brands.
+        </p>
+
+        <p>
+          Nike recognized his potential at a remarkably young age.
+          That early relationship helped establish a partnership that
+          would grow alongside the player's career.
+        </p>
+
+        <p>
+          From his breakthrough at Monaco to his performances on the
+          international stage, the Nike swoosh has remained a constant
+          part of Mbappé's football story.
+        </p>
+
+        <p>
+          His influence now extends beyond football. His boots, clothing,
+          celebrations and personal brand have helped make him one of
+          the most commercially powerful athletes of his generation.
+        </p>
+      `
+    },
+
+    {
+      id: 3,
+      category: "Culture",
+      title: "Why Football Shirts Became Streetwear",
+      excerpt:
+        "The football shirt has moved beyond the stadium and into everyday fashion.",
+      image:
+        "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1400&q=85",
+      date: "August 24, 2026",
+      body: `
+        <p>
+          Football shirts have always represented identity, but their
+          cultural influence has expanded dramatically.
+        </p>
+
+        <p>
+          Supporters, musicians and fashion designers have increasingly
+          adopted classic football shirts as everyday clothing.
+        </p>
+
+        <p>
+          Vintage designs, limited releases and collaborations have
+          transformed football jerseys into collectible pieces.
+        </p>
+      `
+    },
+
+    {
+      id: 4,
+      category: "Business",
+      title: "Inside Football's New Commercial Era",
+      excerpt:
+        "The modern game is becoming a global entertainment and commercial ecosystem.",
+      image:
+        "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1400&q=85",
+      date: "August 21, 2026",
+      body: `
+        <p>
+          Football has developed into one of the world's largest
+          entertainment industries.
+        </p>
+
+        <p>
+          Clubs and athletes now operate across sponsorship,
+          digital media, fashion, gaming and content creation.
+        </p>
+
+        <p>
+          This new commercial environment is changing how clubs
+          interact with supporters and how players build their brands.
+        </p>
+      `
+    }
+
+  ];
+
+
+  // =========================================================
+  // HOME PAGE
+  // =========================================================
+
+  function showHome() {
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+    history.pushState(
+      { page: "home" },
+      "",
+      "#home"
+    );
+
+    renderHome();
+  }
+
+
+  function renderHome(filtered = articles) {
+
+    const hero = filtered[0];
+
+    const remaining = filtered.slice(1);
+
+    document.getElementById("app").innerHTML = `
+
+      <div class="page">
+
+        <!-- HERO -->
+        <section class="max-w-7xl mx-auto px-5 lg:px-8 pt-10">
+
+          <div
+            onclick="openArticle(${hero.id})"
+            class="hero relative h-[520px] md:h-[620px] overflow-hidden rounded-2xl cursor-pointer group"
+          >
+
+            <img
+              src="${hero.image}"
+              class="hero-image absolute inset-0 w-full h-full object-cover"
+              alt="${hero.title}"
+            />
+
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+
+            <div class="absolute bottom-0 left-0 right-0 p-7 md:p-12 text-white">
+
+              <div class="flex items-center gap-3 mb-5">
+
+                <span class="bg-orange-500 px-3 py-1 text-xs font-black uppercase">
+                  ${hero.category}
+                </span>
+
+                <span class="text-xs text-gray-300">
+                  ${hero.date}
+                </span>
+
+              </div>
+
+              <h2 class="text-4xl md:text-6xl max-w-4xl font-black leading-[.95] tracking-tight">
+                ${hero.title}
+              </h2>
+
+              <p class="mt-5 max-w-2xl text-gray-200 text-base md:text-lg">
+                ${hero.excerpt}
+              </p>
+
+              <div class="mt-7 flex items-center gap-3 font-bold">
+                <span>READ ARTICLE</span>
+                <span class="text-orange-400 text-xl transition group-hover:translate-x-2">
+                  →
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- LATEST STORIES -->
+        <section class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
+
+          <div class="flex items-end justify-between mb-8">
+
+            <div>
+              <p class="text-orange-500 text-xs font-black uppercase tracking-[.2em]">
+                Latest
+              </p>
+
+              <h2 class="text-3xl md:text-4xl font-black mt-1">
+                STORIES
+              </h2>
+            </div>
+
+            <span class="hidden sm:block text-sm text-gray-500">
+              ${filtered.length} stories
+            </span>
+
+          </div>
+
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+
+            ${remaining.map(article => `
+
+              <article
+                onclick="openArticle(${article.id})"
+                class="article-card bg-white rounded-xl overflow-hidden cursor-pointer"
+              >
+
+                <div class="relative h-64 overflow-hidden">
+
+                  <img
+                    src="${article.image}"
+                    alt="${article.title}"
+                    class="w-full h-full object-cover transition duration-700 hover:scale-105"
+                  />
+
+                  <span class="absolute top-4 left-4 bg-black text-white text-[10px] font-black uppercase px-3 py-2">
+                    ${article.category}
+                  </span>
+
+                </div>
+
+                <div class="p-6">
+
+                  <p class="text-xs text-gray-400 mb-3">
+                    ${article.date}
+                  </p>
+
+                  <h3 class="text-2xl font-black leading-tight">
+                    ${article.title}
+                  </h3>
+
+                  <p class="text-gray-500 text-sm leading-6 mt-4">
+                    ${article.excerpt}
+                  </p>
+
+                  <div class="mt-6 flex justify-between items-center text-sm font-black">
+
+                    <span>
+                      READ STORY
+                    </span>
+
+                    <span class="text-orange-500 text-xl">
+                      →
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </article>
+
+            `).join("")}
+
+          </div>
+
+        </section>
+
+
+        <!-- NEWSLETTER -->
+        <section class="max-w-7xl mx-auto px-5 lg:px-8 pb-16">
+
+          <div class="bg-orange-500 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row justify-between gap-8 items-center">
+
+            <div>
+              <p class="text-xs font-black uppercase tracking-widest">
+                Stay in the game
+              </p>
+
+              <h2 class="text-3xl md:text-4xl font-black mt-2">
+                GET THE SIGNAL.
+              </h2>
+            </div>
+
+            <form
+              onsubmit="subscribe(event)"
+              class="flex w-full md:w-auto"
+            >
+
+              <input
+                id="email"
+                type="email"
+                required
+                placeholder="Your email"
+                class="px-5 py-4 w-full md:w-72 outline-none"
+              />
+
+              <button
+                class="bg-black text-white px-6 font-black hover:bg-gray-800 transition"
+              >
+                JOIN
+              </button>
+
+            </form>
+
+          </div>
+
+        </section>
+
+      </div>
+    `;
+  }
+
+
+  // =========================================================
+  // ARTICLE PAGE
+  // =========================================================
+
+  function openArticle(id) {
+
+    const article = articles.find(a => a.id === id);
+
+    if (!article) return;
+
+    history.pushState(
+      { page: "article", id },
+      "",
+      "#article-" + id
+    );
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+    document.getElementById("app").innerHTML = `
+
+      <article class="page">
+
+        <!-- ARTICLE HERO -->
+
+        <section class="max-w-5xl mx-auto px-5 lg:px-8 pt-12">
+
+          <button
+            onclick="showHome()"
+            class="mb-8 text-sm font-bold flex items-center gap-2 hover:text-orange-500 transition"
+          >
+            ← BACK TO STORIES
+          </button>
+
+          <div class="mb-8">
+
+            <div class="flex items-center gap-3 mb-5">
+
+              <span class="bg-orange-500 text-white px-3 py-1 text-xs font-black uppercase">
+                ${article.category}
+              </span>
+
+              <span class="text-sm text-gray-500">
+                ${article.date}
+              </span>
+
+            </div>
+
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black leading-[.92] tracking-tight max-w-5xl">
+              ${article.title}
+            </h1>
+
+            <p class="text-xl text-gray-500 mt-7 max-w-3xl leading-8">
+              ${article.excerpt}
+            </p>
+
+            <div class="mt-7 flex items-center gap-3 text-sm">
+              <div class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-black">
+                FS
+              </div>
+
+              <div>
+                <p class="font-bold">
+                  ${article.author}
+                </p>
+
+                <p class="text-gray-400 text-xs">
+                  Football Signal
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+
+          <!-- FEATURE IMAGE -->
+
+          <div class="rounded-2xl overflow-hidden mb-12">
+
+            <img
+              src="${article.image}"
+              alt="${article.title}"
+              class="w-full max-h-[650px] object-cover"
+            />
+
+          </div>
+
+
+          <!-- ARTICLE CONTENT -->
+
+          <div class="max-w-3xl mx-auto">
+
+            <div class="text-lg md:text-xl leading-9 text-gray-700 space-y-7">
+
+              ${article.body}
+
+            </div>
+
+
+            <!-- SHARE -->
+
+            <div class="border-t border-gray-200 mt-14 pt-7 flex justify-between items-center">
+
+              <span class="font-black text-sm">
+                SHARE THIS STORY
+              </span>
+
+              <div class="flex gap-2">
+
+                <button
+                  onclick="shareArticle()"
+                  class="px-4 py-2 bg-black text-white text-xs font-bold hover:bg-orange-500 transition"
+                >
+                  SHARE
+                </button>
+
+                <button
+                  onclick="copyArticleLink()"
+                  class="px-4 py-2 border border-gray-300 text-xs font-bold hover:bg-gray-100 transition"
+                >
+                  COPY LINK
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- MORE STORIES -->
+
+          <section class="mt-20 border-t border-gray-200 pt-12 pb-20">
+
+            <h2 class="text-3xl font-black mb-7">
+              MORE STORIES
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+              ${articles
+                .filter(a => a.id !== article.id)
+                .slice(0, 3)
+                .map(a => `
+
+                  <div
+                    onclick="openArticle(${a.id})"
+                    class="bg-white rounded-xl overflow-hidden cursor-pointer article-card"
+                  >
+
+                    <div class="h-44 overflow-hidden">
+
+                      <img
+                        src="${a.image}"
+                        class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                      />
+
+                    </div>
+
+                    <div class="p-5">
+
+                      <p class="text-orange-500 text-xs font-black uppercase">
+                        ${a.category}
+                      </p>
+
+                      <h3 class="font-black text-xl mt-2">
+                        ${a.title}
+                      </h3>
+
+                    </div>
+
+                  </div>
+
+                `).join("")}
+
+            </div>
+
+          </section>
+
+        </section>
+
+      </article>
+    `;
+  }
+
+
+  // =========================================================
+  // CATEGORY FILTER
+  // =========================================================
+
+  function filterArticles(category) {
+
+    const filtered = articles.filter(
+      article => article.category === category
+    );
+
+    if (filtered.length === 0) {
+      renderHome(articles);
+      return;
+    }
+
+    history.pushState(
+      { page: "category", category },
+      "",
+      "#category-" + category.toLowerCase()
+    );
+
+    renderHome(filtered);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+
+  // =========================================================
+  // MOBILE MENU
+  // =========================================================
+
+  function toggleMenu() {
+
+    const menu = document.getElementById("mobileMenu");
+
+    menu.classList.toggle("hidden");
+  }
+
+
+  // =========================================================
+  // NEWSLETTER
+  // =========================================================
+
+  function subscribe(event) {
+
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+
+    alert(
+      "Thanks! " + email + " has been added to the Football Signal newsletter."
+    );
+
+    event.target.reset();
+  }
+
+
+  // =========================================================
+  // SHARE
+  // =========================================================
+
+  function shareArticle() {
+
+    if (navigator.share) {
+
+      navigator.share({
+        title: document.title,
+        text: "Check out this Football Signal story.",
+        url: window.location.href
+      });
+
+    } else {
+
+      copyArticleLink();
+
+    }
+  }
+
+
+  function copyArticleLink() {
+
+    navigator.clipboard.writeText(window.location.href);
+
+    alert("Article link copied!");
+  }
+
+
+  // =========================================================
+  // BROWSER BACK/FORWARD
+  // =========================================================
+
+  window.addEventListener("popstate", function() {
+
+    const hash = window.location.hash;
+
+    if (hash.startsWith("#article-")) {
+
+      const id = Number(
+        hash.replace("#article-", "")
+      );
+
+      const article = articles.find(a => a.id === id);
+
+      if (article) {
+        openArticleWithoutHistory(id);
+      }
+
+    } else {
+
+      renderHome();
+
+    }
+
+  });
+
+
+  // Prevent history duplication when using browser navigation
+  function openArticleWithoutHistory(id) {
+
+    const article = articles.find(a => a.id === id);
+
+    if (!article) return;
+
+    document.getElementById("app").innerHTML = `
+
+      <article class="page">
+
+        <section class="max-w-5xl mx-auto px-5 lg:px-8 pt-12">
+
+          <button
+            onclick="showHome()"
+            class="mb-8 text-sm font-bold hover:text-orange-500"
+          >
+            ← BACK TO STORIES
+          </button>
+
+          <div class="flex items-center gap-3 mb-5">
+
+            <span class="bg-orange-500 text-white px-3 py-1 text-xs font-black uppercase">
+              ${article.category}
+            </span>
+
+            <span class="text-sm text-gray-500">
+              ${article.date}
+            </span>
+
+          </div>
+
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-black leading-[.92]">
+            ${article.title}
+          </h1>
+
+          <p class="text-xl text-gray-500 mt-7 max-w-3xl">
+            ${article.excerpt}
+          </p>
+
+          <div class="rounded-2xl overflow-hidden mt-10 mb-12">
+            <img
+              src="${article.image}"
+              class="w-full max-h-[650px] object-cover"
+            />
+          </div>
+
+          <div class="max-w-3xl mx-auto">
+
+            <div class="text-lg md:text-xl leading-9 text-gray-700 space-y-7">
+              ${article.body}
+            </div>
+
+          </div>
+
+        </section>
+
+      </article>
+    `;
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+
+  // =========================================================
+  // INITIAL LOAD
+  // =========================================================
+
+  const initialHash = window.location.hash;
+
+  if (initialHash.startsWith("#article-")) {
+
+    const id = Number(
+      initialHash.replace("#article-", "")
+    );
+
+    openArticleWithoutHistory(id);
+
+  } else {
+
+    renderHome();
+
+  }
+
+</script>
 
 
 <!-- ==========================================
@@ -339,7 +1010,6 @@
         <div class="w-auto  h-[500px] overflow-hidden rounded-xl">
             <img 
                 src="image.png.jp1.webp"
-                alt="Second Football Story"
                 class="w-full h-full object-cover">
         </div>
 
@@ -347,17 +1017,17 @@
         <div class="pt-5 px-2">
 
             <!-- Small category -->
-            <p class="text-white text-sm mb-4">
+            <p class="text-black text-sm mb-4">
                 Analysis&nbsp;&nbsp;•&nbsp;&nbsp;L. Messi
             </p>
 
             <!-- Main headline -->
-            <h2 class="text-white text-2xl md:text-4xl font-extrabold leading-tight">
+            <h2 class="text-black text-2xl md:text-4xl font-extrabold leading-tight">
                 How football's biggest stars are turning to club ownership models
             </h2>
 
             <!-- Description -->
-            <p class="text-white text-base md:text-lg mt-5 leading-relaxed">
+            <p class="text-black text-base md:text-lg mt-5 leading-relaxed">
                 Investing in clubs has become something of a craze among top
                 players in recent years as the game has undergone a commercial
                 revolution.
@@ -367,14 +1037,14 @@
             <div class="flex items-center justify-between mt-6">
 
                 <!-- Time + comments -->
-                <div class="flex items-center gap-5 text-white text-sm">
+                <div class="flex items-center gap-5 text-black text-sm">
                     <span>◷ 6h</span>
                     <span>💬 1</span>
                 </div>
 
                 <!-- Full story -->
                 <a href="#" 
-                   class="font-bold text-white text-base">
+                   class="font-bold text-black text-base">
                     Full story
                     <span class="text-red-700 text-xl ml-2">→</span>
                 </a>
@@ -385,17 +1055,12 @@
 
     </section>
 
-
-    <!-- ==========================================
-         THIRD IMAGE + ARTICLE
-    =========================================== -->
     <section>
 
         <!-- THIRD IMAGE -->
         <div class="w-auto  h-[200px] overflow-hidden rounded-xl">
             <img 
                 src="image.png.jp2.webp"
-                alt="Third Football Story"
                 class="w-full h-full object-cover">
         </div>
 
@@ -403,7 +1068,7 @@
         <div class="pt-5 px-2">
 
             <!-- Small category -->
-            <p class="text-white text-sm mb-4">
+            <p class="text-black text-sm mb-4">
                 FEATURES
             </p>
 
@@ -412,14 +1077,14 @@
             </h2>
 
             <!-- Description -->
-            <p class="text-white text-base mt-4 leading-relaxed">
+            <p class="text-black text-base mt-4 leading-relaxed">
                From Salah replacement to tactics: How AI is changing soccer
             </p>
 
             <!-- Bottom information -->
             <div class="flex items-center justify-between mt-5">
 
-                <div class="flex items-center gap-5 text-white text-sm">
+                <div class="flex items-center gap-5 text-black text-sm">
                     <span>◷ 7h</span>
                     <span>💬 0</span>
                 </div>
@@ -439,7 +1104,7 @@
         <div class="pt-5 px-2">
 
             <!-- Small category -->
-            <p class="text-white text-sm mb-4">
+            <p class="text-black text-sm mb-4">
              opinion
             </p>
 
@@ -448,14 +1113,14 @@
             </h2>
 
             <!-- Description -->
-            <p class="text-white text-base mt-4 leading-relaxed">
+            <p class="text-black text-base mt-4 leading-relaxed">
                Bargain buy?!Why Carlos Baleba is exactly what utd need
             </p>
 
             <!-- Bottom information -->
             <div class="flex items-center justify-between mt-5">
 
-                <div class="flex items-center gap-5 text-white text-sm">
+                <div class="flex items-center gap-5 text-black text-sm">
                     <span>◷ 7h</span>
                     <span>💬 11</span>
                 </div>
@@ -1031,7 +1696,8 @@
                     controls
                     preload="metadata">
 
-                    <source src="videos/video.mp4">
+                    <source
+                     src="videos/video.mp4">
 
                 </video>
 
@@ -1065,7 +1731,7 @@
         <!-- HEADING -->
 
         <h1
-            class="text-white
+            class="text-black
                    text-4xl
                    md:text-6xl
                    font-extrabold
@@ -1102,7 +1768,7 @@
                     <!-- CATEGORY -->
 
                     <p
-                        class="text-gray-200
+                        class="text-black
                                text-base
                                font-semibold
                                mb-12">
@@ -1113,7 +1779,7 @@
 
                     <h2
                         class="hall-title
-                               text-white
+                               text-black
                                text-2xl
                                md:text-3xl
                                font-semibold
@@ -1132,13 +1798,13 @@
                         class="flex
                                items-center
                                gap-5
-                               text-gray-200
+                               text-black
                                font-semibold">
 
 
                         <div class="flex items-center gap-2">
 
-                            <span class="text-xl">
+                            <span class="text-gray-200">
                                 ◷
                             </span>
 
@@ -1184,7 +1850,7 @@
                     <!-- CATEGORY -->
 
                     <p
-                        class="text-gray-200
+                        class="text-black
                                text-base
                                font-semibold
                                mb-12">
@@ -1195,7 +1861,7 @@
 
                     <h2
                         class="hall-title
-                               text-white
+                               text-black
                                text-2xl
                                md:text-3xl
                                font-semibold
@@ -1214,7 +1880,7 @@
                         class="flex
                                items-center
                                gap-5
-                               text-gray-200
+                               text-black
                                font-semibold">
 
 
@@ -1263,7 +1929,7 @@
         <!-- HEADING -->
 
         <h1
-            class="text-white
+            class="text-black
                    text-4xl
                    md:text-6xl
                    font-extrabold
@@ -1300,7 +1966,7 @@
                     <!-- CATEGORY -->
 
                     <p
-                        class="text-gray-200
+                        class="text-black
                                text-base
                                font-semibold
                                mb-12">
@@ -1311,7 +1977,7 @@
 
                     <h2
                         class="hall-title
-                               text-white
+                               text-black
                                text-2xl
                                md:text-3xl
                                font-semibold
@@ -1329,7 +1995,7 @@
                         class="flex
                                items-center
                                gap-5
-                               text-gray-200
+                               text-black
                                font-semibold">
 
 
@@ -1380,7 +2046,7 @@
                     <!-- CATEGORY -->
 
                     <p
-                        class="text-gray-200
+                        class="text-black
                                text-base
                                font-semibold
                                mb-12">
@@ -1391,7 +2057,7 @@
 
                     <h2
                         class="hall-title
-                               text-white
+                               text-black
                                text-2xl
                                md:text-3xl
                                font-semibold
@@ -1407,7 +2073,7 @@
                         class="flex
                                items-center
                                gap-5
-                               text-gray-200
+                               text-black
                                font-semibold">
 
 
@@ -1471,7 +2137,7 @@
                     <!-- CATEGORY -->
 
                     <p
-                        class="text-gray-200
+                        class="text-black
                                text-base
                                font-semibold
                                mb-12">
@@ -1482,7 +2148,7 @@
 
                     <h2
                         class="hall-title
-                               text-white
+                               text-black
                                text-2xl
                                md:text-3xl
                                font-semibold
@@ -1499,7 +2165,7 @@
                         class="flex
                                items-center
                                gap-5
-                               text-gray-200
+                               text-black
                                font-semibold">
 
 
@@ -1550,7 +2216,7 @@
                     <!-- CATEGORY -->
 
                     <p
-                        class="text-gray-200
+                        class="text-black
                                text-base
                                font-semibold
                                mb-12">
@@ -1561,7 +2227,7 @@
 
                     <h2
                         class="hall-title
-                               text-white
+                               text-black
                                text-2xl
                                md:text-3xl
                                font-semibold
@@ -1577,7 +2243,7 @@
                         class="flex
                                items-center
                                gap-5
-                               text-gray-200
+                               text-black
                                font-semibold">
 
                         <div class="flex items-center gap-2">
@@ -1843,25 +2509,25 @@
 
         <!-- FACEBOOK -->
         <a href="#"
-           class="text-white text-3xl font-bold hover:text-gray-400">
+           class="text-black text-3xl font-bold hover:text-gray-400">
             f
         </a>
 
         <!-- X -->
         <a href="#"
-           class="text-white text-3xl font-bold hover:text-gray-400">
+           class="text-black text-3xl font-bold hover:text-gray-400">
             𝕏
         </a>
 
         <!-- INSTAGRAM -->
         <a href="#"
-           class="text-white text-3xl hover:text-gray-400">
+           class="text-black text-3xl hover:text-gray-400">
             ◎
         </a>
 
         <!-- YOUTUBE -->
         <a href="#"
-           class="text-white text-3xl hover:text-gray-400">
+           class="text-black text-3xl hover:text-gray-400">
             ▶
         </a>
 
@@ -1872,7 +2538,7 @@
     <div class="flex justify-center items-center
                 flex-wrap gap-4
                 mt-12
-                text-white
+                text-black
                 text-lg
                 font-bold">
 
